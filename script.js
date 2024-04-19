@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const models = carData.models[selectedBrand];
     const years = carData.years;
 
-    // Get the selected car's photo URL
+    // Get the selected car's image URL
     const photoURL = carData.photos[selectedBrand][selectedModel];
 
     // Display the selected car image
@@ -184,7 +184,6 @@ function displayUserDetails() {
     <p><strong>Car Year:</strong> ${carYearSelect.value}</p>
     p><strong>Name:</strong> ${document.getElementById('name').name}</p>
     <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
-    <!-- Add more details if needed -->
   `;
 }
 
