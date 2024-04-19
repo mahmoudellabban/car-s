@@ -28,9 +28,7 @@
           <option value="">Select Car Year</option>
           <!-- Populate options dynamically using JavaScript -->
         </select>
-        <div id="carImageContainer" style="display: none">
-          <img id="carPhoto" src="" alt="Car Photo" />
-        </div>
+        <div id="carImageContainer" class="car-image-container"></div>
         <button id="nextBtn1">Next</button>
       </div>
       <div id="form2" class="form" style="display: none">
@@ -38,7 +36,7 @@
         <label for="sparePartName">Spare Part Name:</label>
         <input type="text" id="sparePartName" name="sparePartName" required />
         <label for="numberOfParts">Number of Spare Parts:</label>
-        <input type="number" id="numberOfParts" name="numberOfParts" required />
+        <input type="text" id="numberOfParts" name="numberOfParts" required />
         <label for="serialNumber">Part's Serial Number:</label>
         <input type="text" id="serialNumber" name="serialNumber" required />
         <label for="carNumber">Car's Number:</label>
@@ -142,6 +140,9 @@
           <button id="backBtn4">Back</button>
         <button id="submitBtn">Submit</button>
         </div>
+      </div>
+      <div id="userDetailsPage" style="display: none;">
+        <div id="userDetails"></div>
       </div>
     </div>
     <script src="script.js"></script>
