@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Selection Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="form1" class="form">
+        <h2>Form 1: Select Car Details</h2>
+        <select id="formType">
+          <option value="">Select Form Type</option>
+          <option value="individual">Individual</option>
+          <option value="company">Company</option>
+        </select>
+        <select id="carBrand">
+          <option value="">Select Car Brand</option>
+          <!-- Populate options dynamically using JavaScript -->
+        </select>
+        <select id="carModel">
+          <option value="">Select Car Model</option>
+          <!-- Populate options dynamically using JavaScript -->
+        </select>
+        <select id="carYear">
+          <option value="">Select Car Year</option>
+          <!-- Populate options dynamically using JavaScript -->
+        </select>
+        <div id="carImageContainer" style="display: none">
+          <img id="carPhoto" src="" alt="Car Photo" />
+        </div>
+        <button id="nextBtn1">Next</button>
+      </div>
+      <div id="form2" class="form" style="display: none">
+        <h2>Form 2: Spare Part Details</h2>
+        <label for="sparePartName">Spare Part Name:</label>
+        <input type="text" id="sparePartName" name="sparePartName" required />
+        <label for="numberOfParts">Number of Spare Parts:</label>
+        <input type="number" id="numberOfParts" name="numberOfParts" required />
+        <label for="serialNumber">Part's Serial Number:</label>
+        <input type="text" id="serialNumber" name="serialNumber" required />
+        <label for="carNumber">Car's Number:</label>
+        <input type="text" id="carNumber" name="carNumber" required />
+        <label for="partDescription">Part Description:</label>
+        <textarea
+          id="partDescription"
+          name="partDescription"
+          rows="4"
+          required
+        ></textarea>
+        <label for="partImage">Upload Part's Image:</label>
+        <input
+          type="file"
+          id="partImage"
+          name="partImage"
+          accept="image/*"
+          required
+        />
+        <button id="backBtn2">Back</button>
+        <button id="nextBtn2">Next</button>
+      </div>
+      <div id="form3" class="form" style="display: none">
+        <h2>Form 3: Customer Details</h2>
+        <label for="customerName">Customer's Name:</label>
+        <input type="text" id="customerName" name="customerName" required />
+        <label for="customerEmail">Customer's Email:</label>
+        <input type="email" id="customerEmail" name="customerEmail" required />
+        <label for="phoneNumber">Customer's Phone Number:</label>
+        <div class="phone-input">
+          <select id="countryCode" name="countryCode" required>
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+            <!-- Add more country codes as needed -->
+          </select>
+          <input type="tel" id="phoneNumber" name="phoneNumber" required />
+        </div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <label for="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+        <button id="backBtn3">Back</button>
+        <button id="nextBtn3">Next</button>
+      </div>
+      <div id="form4" class="form" style="display: none">
+        <h2>Form 4: Shipping Details</h2>
+        <label for="shippingOption">Shipping Option:</label>
+        <select id="shippingOption" name="shippingOption" required>
+          <option value="">Select Shipping Option</option>
+          <option value="me">To Me</option>
+          <option value="friend">To Friend</option>
+        </select>
+        <div class="row">
+          <div class="row1">
+            <label for="arabicFullName">Full Name (Arabic):</label>
+          <input
+            type="text"
+            id="arabicFullName"
+            name="arabicFullName"
+            required
+          />
+          </div>
+          <div class="row1">
+            <label for="englishFullName">Full Name (English):</label>
+          <input
+            type="text"
+            id="englishFullName"
+            name="englishFullName"
+            required
+          />
+          </div>
+        </div>
+        <div class="row">
+          <div class="row1">
+            <label for="country">Country:</label>
+          <input type="text" id="country" name="country" required />
+          </div>
+          <div class="row1">
+            <label for="town">Town:</label>
+          <input type="text" id="town" name="town" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="row1">
+            <label for="postalCode">Postal Code:</label>
+          <input type="text" id="postalCode" name="postalCode" required />
+          </div>
+          <div class="row1">
+            <label for="shippingPhoneNumber">Phone Number:</label>
+          <div class="phone-input">
+            <select
+              id="shippingCountryCode"
+              name="shippingCountryCode"
+              required
+            >
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+              <!-- Add more country codes as needed -->
+            </select>
+            <input
+              type="tel"
+              id="shippingPhoneNumber"
+              name="shippingPhoneNumber"
+              required
+            />
+          </div>
+          </div>
+        </div>
+        <label for="addressDescription">Address Description:</label>
+        <textarea
+          id="addressDescription"
+          name="addressDescription"
+          rows="4"
+          required
+        ></textarea>
+
+        <button id="backBtn4">Back</button>
+        <button id="submitBtn">Submit</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
