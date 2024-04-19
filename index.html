@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Selection Form</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Spare Part Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="build/css/intlTelInput.css" />
   </head>
   <body>
     <div class="container">
       <div id="form1" class="form">
-        <h2>Form 1: Select Car Details</h2>
+        <h2>Select Car Details</h2>
         <select id="formType">
           <option value="">Select Form Type</option>
           <option value="individual">Individual</option>
@@ -33,7 +34,7 @@
         <button id="nextBtn1">Next</button>
       </div>
       <div id="form2" class="form" style="display: none">
-        <h2>Form 2: Spare Part Details</h2>
+        <h2>Spare Part Details</h2>
         <label for="sparePartName">Spare Part Name:</label>
         <input type="text" id="sparePartName" name="sparePartName" required />
         <label for="numberOfParts">Number of Spare Parts:</label>
@@ -57,23 +58,20 @@
           accept="image/*"
           required
         />
+       <div class="btns">
         <button id="backBtn2">Back</button>
         <button id="nextBtn2">Next</button>
+       </div>
       </div>
       <div id="form3" class="form" style="display: none">
-        <h2>Form 3: Customer Details</h2>
+        <h2>Customer Details</h2>
         <label for="customerName">Customer's Name:</label>
         <input type="text" id="customerName" name="customerName" required />
         <label for="customerEmail">Customer's Email:</label>
         <input type="email" id="customerEmail" name="customerEmail" required />
         <label for="phoneNumber">Customer's Phone Number:</label>
         <div class="phone-input">
-          <select id="countryCode" name="countryCode" required>
-            <option value="+1">+1</option>
-            <option value="+44">+44</option>
-            <!-- Add more country codes as needed -->
-          </select>
-          <input type="tel" id="phoneNumber" name="phoneNumber" required />
+          <input type="tel" id="phone" name="phoneNumber" required />
         </div>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
@@ -84,11 +82,13 @@
           name="confirmPassword"
           required
         />
-        <button id="backBtn3">Back</button>
+        <div class="btns">
+          <button id="backBtn3">Back</button>
         <button id="nextBtn3">Next</button>
+        </div>
       </div>
       <div id="form4" class="form" style="display: none">
-        <h2>Form 4: Shipping Details</h2>
+        <h2>Shipping Details</h2>
         <label for="shippingOption">Shipping Option:</label>
         <select id="shippingOption" name="shippingOption" required>
           <option value="">Select Shipping Option</option>
@@ -98,58 +98,38 @@
         <div class="row">
           <div class="row1">
             <label for="arabicFullName">Full Name (Arabic):</label>
-          <input
-            type="text"
-            id="arabicFullName"
-            name="arabicFullName"
-            required
-          />
+            <input
+              type="text"
+              id="arabicFullName"
+              name="arabicFullName"
+              required
+            />
           </div>
           <div class="row1">
             <label for="englishFullName">Full Name (English):</label>
-          <input
-            type="text"
-            id="englishFullName"
-            name="englishFullName"
-            required
-          />
+            <input
+              type="text"
+              id="englishFullName"
+              name="englishFullName"
+              required
+            />
           </div>
         </div>
         <div class="row">
           <div class="row1">
             <label for="country">Country:</label>
-          <input type="text" id="country" name="country" required />
+            <input type="text" id="country" name="country" required />
           </div>
           <div class="row1">
             <label for="town">Town:</label>
-          <input type="text" id="town" name="town" required />
+            <input type="text" id="town" name="town" required />
           </div>
         </div>
-        <div class="row">
-          <div class="row1">
-            <label for="postalCode">Postal Code:</label>
-          <input type="text" id="postalCode" name="postalCode" required />
-          </div>
-          <div class="row1">
-            <label for="shippingPhoneNumber">Phone Number:</label>
-          <div class="phone-input">
-            <select
-              id="shippingCountryCode"
-              name="shippingCountryCode"
-              required
-            >
-              <option value="+1">+1</option>
-              <option value="+44">+44</option>
-              <!-- Add more country codes as needed -->
-            </select>
-            <input
-              type="tel"
-              id="shippingPhoneNumber"
-              name="shippingPhoneNumber"
-              required
-            />
-          </div>
-          </div>
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" id="postalCode" name="postalCode" required />
+        <label for="shippingPhoneNumber">Phone Number:</label>
+        <div class="phone-input">
+          <input type="tel" id="phone2" name="phoneNumber" required />
         </div>
         <label for="addressDescription">Address Description:</label>
         <textarea
@@ -158,11 +138,19 @@
           rows="4"
           required
         ></textarea>
-
-        <button id="backBtn4">Back</button>
+        <div class="btns">
+          <button id="backBtn4">Back</button>
         <button id="submitBtn">Submit</button>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
+    <script src="build/js/intlTelInput.js"></script>
+    <script>
+      var input = document.querySelector("#phone");
+      window.intlTelInput(input, {});
+      var input = document.querySelector("#phone2");
+      window.intlTelInput(input, {});
+    </script>
   </body>
 </html>

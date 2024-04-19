@@ -25,14 +25,14 @@ const carData = {
   years: [2020, 2021, 2022],
   photos: {
     Toyota: {
-      Corolla: 'corolla.jpg',
+      Corolla: 'corolla.jpeg',
       Camry: 'camry.jpg',
       RAV4: 'rav4.jpg'
     },
     Honda: {
       Civic: 'civic.jpg',
       Accord: 'accord.jpg',
-      'CR-V': 'crv.jpg'
+      CRV: 'crv.jpg'
     },
     Ford: {
       Focus: 'focus.jpg',
