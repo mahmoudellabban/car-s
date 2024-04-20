@@ -154,6 +154,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  const repeaterContainer = document.getElementById("repeaterContainer");
+  const addSparePartBtn = document.getElementById("addSparePartBtn");
+  const removeSparePartBtn = document.getElementById("removeSparePartBtn");
+  // Function to create a new spare part input group
+  function createSparePartInputGroup() {
+    const group = document.createElement("div");
+   group.classList.add("spare-part-group");
+
+    const numberLabel = document.createElement("label");
+    numberLabel.textContent = "Number of spare parts:";
+    group.appendChild(numberLabel);
+    const numberInput = document.createElement("input");
+    numberInput.type = "number";
+    numberInput.name = "sparePartNumber";
+    numberInput.required = true;
+    group.appendChild(numberInput);
+
+    const serialLabel = document.createElement("label");
+    serialLabel.textContent = "Part's serial number:";
+    group.appendChild(serialLabel);
+    const serialInput = document.createElement("input");
+    serialInput.type = "text";
+    serialInput.name = "serialNumber";
+    serialInput.required = true;
+    group.appendChild(serialInput);
+
+    const carLabel = document.createElement("label");
+    carLabel.textContent = "Car's number:";
+    group.appendChild(carLabel);
+    const carInput = document.createElement("input");
+    carInput.type = "text";
+    carInput.name = "carNumber";
+    carInput.required = true;
+    group.appendChild(carInput);
+
+    const descLabel = document.createElement("label");
+    descLabel.textContent = "Part's Description:";
+    group.appendChild(descLabel);
+    const descInput = document.createElement("textarea");
+    descInput.name = "desc";
+    descInput.required = true;
+    group.appendChild(descInput);
+
+    repeaterContainer.appendChild(group);
+  }
+
+  // Event listener for adding spare part
+  addSparePartBtn.addEventListener("click", function () {
+    createSparePartInputGroup();
+  });
+
+  // Event listener for removing spare part
+  removeSparePartBtn.addEventListener("click", function () {
+    const groups = repeaterContainer.querySelectorAll(".spare-part-group");
+    if (groups.length > 1) {
+      const lastGroup = groups[groups.length - 1];
+      repeaterContainer.removeChild(lastGroup);
+      addSparePartBtn.style.display = "inline-block"; // Show "Add Spare Part" button after removing a spare part
+    }
+  });
+
   // Function to display order details
   function displayUserDetails() {
     const userDetailsContainer = document.getElementById("userDetails");
