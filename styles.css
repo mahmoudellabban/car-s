@@ -96,7 +96,14 @@ button:hover {
   display: block;
   margin: 0 auto;
 }
-
+.required-message::before {
+  content: "* ";
+}
+.required-message {
+  color: rgb(228, 10, 10);
+  margin: 10px auto;
+  font-size: 14px;
+}
 @media (max-width: 480px) {
   .container {
     padding: 10px;

@@ -16,31 +16,48 @@
           <option value="individual">Individual</option>
           <option value="company">Company</option>
         </select>
-        <select id="carBrand">
+        <span class="required-message" style="display: none;">This field is required</span>
+
+        <select id="carBrand" required>
           <option value="">Select Car Brand</option>
           <!-- Populate options dynamically using JavaScript -->
         </select>
-        <select id="carModel">
+        <span class="required-message" style="display: none;">This field is required</span>
+      
+        <select id="carModel" required>
           <option value="">Select Car Model</option>
           <!-- Populate options dynamically using JavaScript -->
         </select>
-        <select id="carYear">
+        <span class="required-message" style="display: none;">This field is required</span>
+      
+        <select id="carYear" required>
           <option value="">Select Car Year</option>
           <!-- Populate options dynamically using JavaScript -->
         </select>
+        <span class="required-message" style="display: none;">This field is required</span>
+      
         <div id="carImageContainer" class="car-image-container"></div>
         <button id="nextBtn1">Next</button>
       </div>
+      
       <div id="form2" class="form" style="display: none">
         <h2>Spare Part Details</h2>
         <label for="sparePartName">Spare Part Name:</label>
         <input type="text" id="sparePartName" name="sparePartName" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="numberOfParts">Number of Spare Parts:</label>
         <input type="text" id="numberOfParts" name="numberOfParts" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="serialNumber">Part's Serial Number:</label>
         <input type="text" id="serialNumber" name="serialNumber" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="carNumber">Car's Number:</label>
         <input type="text" id="carNumber" name="carNumber" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="partDescription">Part Description:</label>
         <textarea
           id="partDescription"
@@ -48,6 +65,8 @@
           rows="4"
           required
         ></textarea>
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="partImage">Upload Part's Image:</label>
         <input
           type="file"
@@ -56,6 +75,8 @@
           accept="image/*"
           required
         />
+        <span class="required-message" style="display: none;">This field is required</span>
+
        <div class="btns">
         <button id="backBtn2">Back</button>
         <button id="nextBtn2">Next</button>
@@ -65,14 +86,22 @@
         <h2>Customer Details</h2>
         <label for="customerName">Customer's Name:</label>
         <input type="text" id="customerName" name="customerName" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="customerEmail">Customer's Email:</label>
         <input type="email" id="customerEmail" name="customerEmail" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="phoneNumber">Customer's Phone Number:</label>
         <div class="phone-input">
           <input type="tel" id="phone" name="phoneNumber" required />
+          <span class="required-message" style="display: none;">This field is required</span>
+
         </div>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="confirmPassword">Confirm Password:</label>
         <input
           type="password"
@@ -80,6 +109,8 @@
           name="confirmPassword"
           required
         />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <div class="btns">
           <button id="backBtn3">Back</button>
         <button id="nextBtn3">Next</button>
@@ -94,6 +125,8 @@
           <option value="me">To Me</option>
           <option value="friend">To Friend</option>
         </select>
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <div class="row">
           <div class="row1">
             <label for="arabicFullName">Full Name (Arabic):</label>
@@ -103,6 +136,8 @@
               name="arabicFullName"
               required
             />
+            <span class="required-message" style="display: none;">This field is required</span>
+
           </div>
           <div class="row1">
             <label for="englishFullName">Full Name (English):</label>
@@ -112,23 +147,33 @@
               name="englishFullName"
               required
             />
+            <span class="required-message" style="display: none;">This field is required</span>
+
           </div>
         </div>
         <div class="row">
           <div class="row1">
             <label for="country">Country:</label>
             <input type="text" id="country" name="country" required />
+            <span class="required-message" style="display: none;">This field is required</span>
+
           </div>
           <div class="row1">
             <label for="town">Town:</label>
             <input type="text" id="town" name="town" required />
+            <span class="required-message" style="display: none;">This field is required</span>
+
           </div>
         </div>
         <label for="postalCode">Postal Code:</label>
         <input type="text" id="postalCode" name="postalCode" required />
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <label for="shippingPhoneNumber">Phone Number:</label>
         <div class="phone-input">
           <input type="tel" id="phone2" name="phoneNumber" required />
+          <span class="required-message" style="display: none;">This field is required</span>
+
         </div>
         <label for="addressDescription">Address Description:</label>
         <textarea
@@ -137,6 +182,8 @@
           rows="4"
           required
         ></textarea>
+        <span class="required-message" style="display: none;">This field is required</span>
+
         <div class="btns">
           <button id="backBtn4">Back</button>
         <button id="submitBtn">Submit</button>
