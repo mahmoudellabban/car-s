@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spare Part Form</title>
+    <!--Main CSS file-->
     <link rel="stylesheet" href="styles.css">
+    <!--Phone number codes and flags-->
     <link rel="stylesheet" href="build/css/intlTelInput.css" />
   </head>
   <body>
     <div class="container">
+      <!--first form-->
       <div id="form1" class="form">
         <h2>Car Details</h2>
         <select id="formType">
@@ -39,6 +42,8 @@
         <div id="carImageContainer" class="car-image-container"></div>
         <button id="nextBtn1">Next</button>
       </div>
+      <!--End of first form-->
+      <!--Second form-->
       <div id="form2" class="form" style="display: none">
         <h2>Spare Part Details</h2>
         <label for="sparePartName">Spare Part Name:</label>
@@ -81,6 +86,8 @@
         <button id="nextBtn2">Next</button>
        </div>
       </div>
+      <!--End of second form-->
+      <!--Third form-->
       <div id="form3" class="form" style="display: none">
         <h2>Customer Details</h2>
         <label for="customerName">Customer's Name:</label>
@@ -115,6 +122,8 @@
         <button id="nextBtn3">Next</button>
         </div>
       </div>
+      <!--End of third form-->
+      <!--Fourth form-->
       <div id="form4" class="form" style="display: none">
         <h2>Shipping Details</h2>
         <label for="shippingOption">Shipping Option:</label>
@@ -189,12 +198,17 @@
         <button id="submitBtn">Submit</button>
         </div>
       </div>
+      <!--End of fourth form-->
+      <!--order details-->
       <div id="userDetailsPage" style="display: none;">
         <div id="userDetails">   
         </div>
       </div>
+      <!--End of order details-->
     </div>
+    <!--Main script file-->
     <script src="script.js"></script>
+    <!--Phone number codes and flags script-->
     <script src="build/js/intlTelInput.js"></script>
     <script>
       var input = document.querySelector("#phone");

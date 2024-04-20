@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const carModelSelect = document.getElementById("carModel");
   const carYearSelect = document.getElementById("carYear");
   const form4 = document.getElementById("form4");
-
+  const forms = document.querySelectorAll(".form");
+  const nextButtons = document.querySelectorAll("[id^='nextBtn']");
+  const backButtons = document.querySelectorAll("[id^='backBtn']");
+  const submitBtn = document.getElementById("submitBtn");
   // Dummy data for car brands, models, and years
   const carData = {
     brands: ["Toyota", "Honda", "Ford", "Chevrolet", "Audi", "Kia"],
@@ -138,12 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Get all forms and buttons
-  const forms = document.querySelectorAll(".form");
-  const nextButtons = document.querySelectorAll("[id^='nextBtn']");
-  const backButtons = document.querySelectorAll("[id^='backBtn']");
-  const submitBtn = document.getElementById("submitBtn");
-
   // Handle form navigation for all next buttons
   nextButtons.forEach((nextBtn, index) => {
     handleFormNavigation(nextBtn, forms[index], forms[index + 1]);
@@ -157,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Function to display user-selected details
+  // Function to display order details
   function displayUserDetails() {
     const userDetailsContainer = document.getElementById("userDetails");
     userDetailsContainer.innerHTML = `
@@ -195,12 +192,12 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("addressDescription").value
     }</p>
   `;
-    
-    // Create a div to wrap the buttons
-  const btnsDiv = document.createElement("div");
-  btnsDiv.classList.add("btns");
 
-    // Create back button and append it to the userDetailsContainer
+    // div to wrap the buttons
+    const btnsDiv = document.createElement("div");
+    btnsDiv.classList.add("btns");
+
+    // back button and append it to the userDetailsContainer
     const backBtn = document.createElement("button");
     backBtn.type = "button";
     backBtn.textContent = "Back";
@@ -209,13 +206,12 @@ document.addEventListener("DOMContentLoaded", function () {
     userDetailsContainer.appendChild(backBtn);
     userDetailsContainer.appendChild(btnsDiv);
 
-
     // Handle back button click
     backBtn.addEventListener("click", function () {
       userDetailsContainer.innerHTML = ""; // Clear user details
       form4.style.display = "block"; // Show the last form
     });
-    // Create submit button and append it to the userDetailsContainer
+    // submit button and append it to the userDetailsContainer
     const submitConfirmationBtn = document.createElement("button");
     submitConfirmationBtn.type = "button";
     submitConfirmationBtn.textContent = "Submit";
@@ -223,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
     submitConfirmationBtn.classList.add("confirmation-button");
     userDetailsContainer.appendChild(submitConfirmationBtn);
     userDetailsContainer.appendChild(btnsDiv);
-
 
     // Handle submit confirmation button click
     submitConfirmationBtn.addEventListener("click", function () {
@@ -233,12 +228,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const message = document.createElement("p");
       message.textContent =
         "Your order has been successfully submitted, We will contact you as soon as possible!";
-        message.classList.add("success-message");
-        userDetailsContainer.appendChild(message);
+      message.classList.add("success-message");
+      userDetailsContainer.appendChild(message);
     });
   }
 
-  // Add event listener for form submission
+  // event listener for form submission
   submitBtn.addEventListener("click", function (e) {
     e.preventDefault();
     if (isFormValid(form4)) {
@@ -249,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Add event listeners for dropdowns to hide the required field messages
+  //  event listeners for dropdowns to hide the required field messages
   forms.forEach((form) => {
     const selects = form.querySelectorAll("select");
     selects.forEach((select) => {
@@ -258,5 +253,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-  
 });
