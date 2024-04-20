@@ -4,9 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const carYearSelect = document.getElementById("carYear");
   const form4 = document.getElementById("form4");
 
-
-   // Dummy data for car brands, models, and years
-   const carData = {
+  // Dummy data for car brands, models, and years
+  const carData = {
     brands: ["Toyota", "Honda", "Ford", "Chevrolet", "Audi", "Kia"],
     models: {
       Toyota: ["Corolla", "Camry", "RAV4"],
@@ -98,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     carYearSelect.disabled = false;
   });
- // Function to check if a form is valid
+  // Function to check if a form is valid
   function isFormValid(form) {
     const inputs = form.querySelectorAll("input, select, textarea");
     let isValid = true;
@@ -162,24 +161,74 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayUserDetails() {
     const userDetailsContainer = document.getElementById("userDetails");
     userDetailsContainer.innerHTML = `
-      <h2>User Details</h2>
-      <p><strong>Name:</strong> ${document.getElementById("englishFullName").value}</p>
-      <p><strong>Email:</strong> ${document.getElementById("customerEmail").value}</p>
-      <p><strong>Phone Number:</strong> ${document.getElementById("phone").value}</p>
-      <p><strong>Car Brand:</strong> ${carBrandSelect.value}</p>
-      <p><strong>Car Model:</strong> ${carModelSelect.value}</p>
-      <p><strong>Car Year:</strong> ${carYearSelect.value}</p>
-      <p><strong>Spare Part:</strong> ${document.getElementById("sparePartName").value}</p>
-      <p><strong>Number of parts:</strong> ${document.getElementById("numberOfParts").value}</p>
-      <p><strong>Serial Number:</strong> ${document.getElementById("serialNumber").value}</p>
-      <p><strong>Car Number:</strong> ${document.getElementById("carNumber").value}</p>
-      <p><strong>Description:</strong> ${document.getElementById("partDescription").value}</p>
-      <p><strong>Country:</strong> ${document.getElementById("country").value}</p>
-      <p><strong>Town:</strong> ${document.getElementById("town").value}</p>
-      <p><strong>Address:</strong> ${document.getElementById("addressDescription").value}</p>
-      
+    <h2>User Details</h2>
+    <p><strong>Name:</strong> ${
+      document.getElementById("englishFullName").value
+    }</p>
+    <p><strong>Email:</strong> ${
+      document.getElementById("customerEmail").value
+    }</p>
+    <p><strong>Phone Number:</strong> ${
+      document.getElementById("phone").value
+    }</p>
+    <p><strong>Car Brand:</strong> ${carBrandSelect.value}</p>
+    <p><strong>Car Model:</strong> ${carModelSelect.value}</p>
+    <p><strong>Car Year:</strong> ${carYearSelect.value}</p>
+    <p><strong>Spare Part:</strong> ${
+      document.getElementById("sparePartName").value
+    }</p>
+    <p><strong>Number of parts:</strong> ${
+      document.getElementById("numberOfParts").value
+    }</p>
+    <p><strong>Serial Number:</strong> ${
+      document.getElementById("serialNumber").value
+    }</p>
+    <p><strong>Car Number:</strong> ${
+      document.getElementById("carNumber").value
+    }</p>
+    <p><strong>Description:</strong> ${
+      document.getElementById("partDescription").value
+    }</p>
+    <p><strong>Country:</strong> ${document.getElementById("country").value}</p>
+    <p><strong>Town:</strong> ${document.getElementById("town").value}</p>
+    <p><strong>Address:</strong> ${
+      document.getElementById("addressDescription").value
+    }</p>
+  `;
 
-    `;
+    // Create back button and append it to the userDetailsContainer
+    const backBtn = document.createElement("button");
+    backBtn.type = "button";
+    backBtn.textContent = "Back";
+    backBtn.id = "backBtn";
+    backBtn.classList.add("back-button");
+
+    userDetailsContainer.appendChild(backBtn);
+
+    // Handle back button click
+    backBtn.addEventListener("click", function () {
+      userDetailsContainer.innerHTML = ""; // Clear user details
+      form4.style.display = "block"; // Show the last form
+    });
+    // Create submit button and append it to the userDetailsContainer
+    const submitConfirmationBtn = document.createElement("button");
+    submitConfirmationBtn.type = "button";
+    submitConfirmationBtn.textContent = "Submit";
+    submitConfirmationBtn.id = "submitConfirmationBtn";
+    submitConfirmationBtn.classList.add("confirmation-button");
+    userDetailsContainer.appendChild(submitConfirmationBtn);
+
+    // Handle submit confirmation button click
+    submitConfirmationBtn.addEventListener("click", function () {
+      // Clear user details
+      userDetailsContainer.innerHTML = "";
+      // Display the message
+      const message = document.createElement("p");
+      message.textContent =
+        "Your order has been successfully submitted, We will contact you as soon as possible!";
+        message.classList.add("success-message");
+        userDetailsContainer.appendChild(message);
+    });
   }
 
   // Add event listener for form submission
@@ -203,4 +252,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
