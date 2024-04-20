@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayUserDetails() {
     const userDetailsContainer = document.getElementById("userDetails");
     userDetailsContainer.innerHTML = `
-    <h2>User Details</h2>
+    <h2>Order Confirmation</h2>
     <p><strong>Name:</strong> ${
       document.getElementById("englishFullName").value
     }</p>
@@ -195,6 +195,10 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("addressDescription").value
     }</p>
   `;
+    
+    // Create a div to wrap the buttons
+  const btnsDiv = document.createElement("div");
+  btnsDiv.classList.add("btns");
 
     // Create back button and append it to the userDetailsContainer
     const backBtn = document.createElement("button");
@@ -202,8 +206,9 @@ document.addEventListener("DOMContentLoaded", function () {
     backBtn.textContent = "Back";
     backBtn.id = "backBtn";
     backBtn.classList.add("back-button");
-
     userDetailsContainer.appendChild(backBtn);
+    userDetailsContainer.appendChild(btnsDiv);
+
 
     // Handle back button click
     backBtn.addEventListener("click", function () {
@@ -217,6 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
     submitConfirmationBtn.id = "submitConfirmationBtn";
     submitConfirmationBtn.classList.add("confirmation-button");
     userDetailsContainer.appendChild(submitConfirmationBtn);
+    userDetailsContainer.appendChild(btnsDiv);
+
 
     // Handle submit confirmation button click
     submitConfirmationBtn.addEventListener("click", function () {
