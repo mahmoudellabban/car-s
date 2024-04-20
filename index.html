@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles.css" />
     <!--Phone number codes and flags-->
     <link rel="stylesheet" href="build/css/intlTelInput.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -54,26 +58,15 @@
       <!--Second form-->
       <div id="form2" class="form" style="display: none">
         <h2>Spare Part Details</h2>
-        <div id="repeaterContainer">
-          <!-- Initial spare part name input field -->
-          <div class="spare-part-group">
-            <label for="sparePartName">Spare Part Name:</label>
-            <input
-              type="text"
-              id="sparePartName"
-              name="sparePartName"
-              required
-            />
+        <div id="form-container">
+          <div class="form-group">
+            <label for="input1">Spare Part Name</label>
+            <input type="text" id="input1" name="input1" />
+          </div>
+          <div class="btns">
+            <button id="add-btn">Add</button>
           </div>
         </div>
-
-        <div class="btns">
-          <button id="addSparePartBtn">Add</button>
-        <button id="removeSparePartBtn" style="display: none">
-          Remove 
-        </button>
-        </div>
-
         <div class="btns">
           <button id="backBtn2">Back</button>
           <button id="nextBtn2">Next</button>
@@ -265,6 +258,94 @@
     <!--Phone number codes and flags script-->
     <script src="build/js/intlTelInput.js"></script>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const formContainer = document.getElementById("form-container");
+const addBtn = document.getElementById("add-btn");
+let fieldCounter = 0;
+
+// Array of field objects
+const fields = [
+    { label: "Spare Part Number", type: "number" },
+    { label: "Spare Part Serial Number", type: "text" },
+    { label: "Car Number", type: "text" },
+    { label: "Part Description", type: "textarea" },
+    { label: "Part Image", type: "file" }
+];
+
+addBtn.addEventListener("click", function () {
+    fields.forEach((field) => {
+        fieldCounter++;
+        addField(field.label, field.type, fieldCounter); // Pass fieldCounter to addField
+    });
+});
+
+formContainer.addEventListener("click", function (event) {
+    const target = event.target;
+
+    if (target.classList.contains("remove-btn")) {
+        removeField(target.parentNode);
+    }
+});
+
+function addField(labelName, inputType, fieldCounter) {
+    const newField = document.createElement("div");
+    newField.classList.add("form-group");
+    const inputId = `input${fieldCounter}`; // Unique input ID
+
+    if (inputType === "textarea") {
+        newField.innerHTML = `
+            <label for="${inputId}">${labelName}:</label>
+            <textarea id="${inputId}" name="${inputId}" rows="4"></textarea>
+        `;
+    } else if (inputType === "file") {
+        const previewId = `preview${fieldCounter}`; // Unique preview ID
+        newField.innerHTML = `
+            <label for="${inputId}">${labelName}:</label>
+            <input type="file" id="${inputId}" name="${inputId}" accept="image/*">
+            <img id="${previewId}" src="#" alt="Preview" style="display:none; max-width: 100px; max-height: 100px;">
+        `;
+        // Add event listener to show image preview
+        const inputField = newField.querySelector(`#${inputId}`);
+        const previewImg = newField.querySelector(`#${previewId}`);
+        inputField.addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                previewImg.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        });
+    } else {
+        newField.innerHTML = `
+            <label for="${inputId}">${labelName}:</label>
+            <input type="${inputType}" id="${inputId}" name="${inputId}">
+        `;
+    }
+    formContainer.appendChild(newField);
+}
+
+function removeField(field) {
+    formContainer.removeChild(field);
+}
+
+// Function to show required field message
+function showRequiredMessage(field) {
+    const message = field.nextElementSibling;
+    if (message && message.classList.contains("required-message")) {
+      message.style.display = "block";
+    }
+  }
+
+  // Function to hide required field message
+  function hideRequiredMessage(field) {
+    const message = field.nextElementSibling;
+    if (message && message.classList.contains("required-message")) {
+      message.style.display = "none";
+    }
+  }
+      });
+
       var input = document.querySelector("#phone");
       window.intlTelInput(input, {});
       var input = document.querySelector("#phone2");
