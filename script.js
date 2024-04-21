@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextButtons = document.querySelectorAll("[id^='nextBtn']");
   const backButtons = document.querySelectorAll("[id^='backBtn']");
   const submitBtn = document.getElementById("submitBtn");
-  
+
   // Dummy data for car brands, models, and years
   const carData = {
     brands: ["Toyota", "Honda", "Ford", "Chevrolet", "Audi", "Kia"],
@@ -163,39 +163,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const userDetailsContainer = document.getElementById("userDetails");
     userDetailsContainer.innerHTML = `
     <h2>Order Confirmation</h2>
-    <p><strong>Name:</strong> ${
-      document.getElementById("englishFullName").value
-    }</p>
-    <p><strong>Email:</strong> ${
-      document.getElementById("customerEmail").value
-    }</p>
-    <p><strong>Phone Number:</strong> ${
-      document.getElementById("phone").value
-    }</p>
+    <p><strong>Name:</strong> ${document.getElementById("englishFullName").value}</p>
+    <p><strong>Email:</strong> ${document.getElementById("customerEmail").value}</p>
+    <p><strong>Phone Number:</strong> ${document.getElementById("phone").value}</p>
     <p><strong>Car Brand:</strong> ${carBrandSelect.value}</p>
     <p><strong>Car Model:</strong> ${carModelSelect.value}</p>
     <p><strong>Car Year:</strong> ${carYearSelect.value}</p>
-    <p><strong>Spare Part:</strong> ${
-      document.getElementById("sparePartName").value
-    }</p>
-    <p><strong>Number of parts:</strong> ${
-      document.getElementById("numberOfParts").value
-    }</p>
-    <p><strong>Serial Number:</strong> ${
-      document.getElementById("serialNumber").value
-    }</p>
-    <p><strong>Car Number:</strong> ${
-      document.getElementById("carNumber").value
-    }</p>
-    <p><strong>Description:</strong> ${
-      document.getElementById("partDescription").value
-    }</p>
     <p><strong>Country:</strong> ${document.getElementById("country").value}</p>
     <p><strong>Town:</strong> ${document.getElementById("town").value}</p>
-    <p><strong>Address:</strong> ${
-      document.getElementById("addressDescription").value
-    }</p>
-    
+    <p><strong>Address:</strong> ${document.getElementById("addressDescription").value}</p>
   `;
 
     // div to wrap the buttons

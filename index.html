@@ -287,7 +287,7 @@ formContainer.addEventListener("click", function (event) {
     }
 });
 
-function addField(labelName, inputType, fieldCounter) {
+ function  addField(labelName, inputType, fieldCounter) {
     const newField = document.createElement("div");
     newField.classList.add("form-group");
     const inputId = `input${fieldCounter}`; // Unique input ID
@@ -328,22 +328,6 @@ function addField(labelName, inputType, fieldCounter) {
 function removeField(field) {
     formContainer.removeChild(field);
 }
-
-// Function to show required field message
-function showRequiredMessage(field) {
-    const message = field.nextElementSibling;
-    if (message && message.classList.contains("required-message")) {
-      message.style.display = "block";
-    }
-  }
-
-  // Function to hide required field message
-  function hideRequiredMessage(field) {
-    const message = field.nextElementSibling;
-    if (message && message.classList.contains("required-message")) {
-      message.style.display = "none";
-    }
-  }
       });
 
       var input = document.querySelector("#phone");
